@@ -1,4 +1,4 @@
-import { User } from "lucide-react";
+import { ShoppingCart, User } from "lucide-react";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
@@ -49,6 +49,20 @@ export const Navbar = () => {
           </ul>
         </div>
       </>
+
+      <nav className="flex ">
+        <div>
+          <Link></Link>
+        </div>
+
+        <form action="">
+          <input type="text" className="w-5 h-12"/>
+        </form>
+
+        <Link>
+            <ShoppingCart />
+        </Link>
+      </nav>
     </header>
   );
 };
