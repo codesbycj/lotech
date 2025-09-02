@@ -50,17 +50,22 @@ export const Navbar = () => {
         </div>
       </>
 
-      <nav className="flex ">
+      <nav className="flex justify-between container m-auto items-center md:py-6 py-3 px-4 md:px-0 mb-15 md:mb-0">
         <div>
-          <Link></Link>
+          <Link>
+            <img src="./lotech.webp" alt="" className="w-20 md:w-25" />
+          </Link>
         </div>
 
-        <form action="">
-          <input type="text" className="w-5 h-12"/>
+        <form action="" className="w-1/2 sm:block hidden">
+          <input type="text" 
+          className="bg-zinc-100 rounded-md border border-zinc-200 focus:outline-none p-3 w-full"
+          placeholder="Search Product"/>
+          
         </form>
 
         <Link>
-            <ShoppingCart />
+            <ShoppingCart className="cursor-pointer bg-gray-100 px-3 py-2 rounded-full size-[50px]"/>
         </Link>
       </nav>
     </header>
