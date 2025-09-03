@@ -1,9 +1,13 @@
 import { ShoppingCart, User } from "lucide-react";
 import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { setSearchTerm } from "../features/products/ProductSlice";
 
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const dispatch = useDispatch();
+  const searchTerm = useSelector((state) => state.product.searchTerm)
 
   const dropDown = () => {
     setIsOpen(!isOpen);
@@ -11,9 +15,9 @@ export const Navbar = () => {
   };
 
   return (
-    <header className="bg-white shadow-md">
+    <header className="bg-white shadow-md fixed w-full">
       <>
-        <div className="py-4 shadow-md">
+        <div className="py-4 shadow-md px-9">
           <ul className="container mx-auto flex flex-wrap justify-between md:flex-row px-4 md:px-2 items-center relative">
             <div className="flex gap-4">
               <li>
@@ -50,17 +54,19 @@ export const Navbar = () => {
         </div>
       </>
 
-      <nav className="flex justify-between container m-auto items-center md:py-6 py-3 px-4 md:px-0 mb-15 md:mb-0">
+      <nav className="flex justify-between container px-9 m-auto items-center md:py-6 py-3 mb-15 md:mb-0">
         <div>
           <Link>
-            <img src="./lotech.webp" alt="" className="w-20 md:w-25" />
+            <img src="./lotech-bg.png" alt="" className="w-20 md:w-25" />
           </Link>
         </div>
 
         <form action="" className="w-1/2 sm:block hidden">
           <input type="text" 
           className="bg-zinc-100 rounded-md border border-zinc-200 focus:outline-none p-3 w-full"
-          placeholder="Search Product"/>
+          placeholder="Search Product"
+          value={searchTerm}
+          onChange={(e) => dispatch(setSearchTerm(e.target.value))}/>
           
         </form>
 
