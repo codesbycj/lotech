@@ -15,7 +15,7 @@ export const Navbar = () => {
   };
 
   return (
-    <header className="bg-white shadow-md fixed w-full">
+    <header className="bg-white shadow-md fixed w-full top-0">
       <>
         <div className="py-4 shadow-md px-9">
           <ul className="container mx-auto flex flex-wrap justify-between md:flex-row px-4 md:px-2 items-center relative">

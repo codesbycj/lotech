@@ -2,9 +2,13 @@ import React from "react";
 import bg from "../assets/homebanner.jpg";
 import mbg from "../assets/mobilebanner.jpg";
 import { Footer, ProductGrid } from "../components";
+import { useDispatch } from "react-redux";
+import { setSelectedCategory } from "../features/products/ProductSlice";
 
 export const Home = () => {
   const categories = ["All", "Keyboard", "Mouse", "Speakers", "Headset"];
+
+  const dispatch = useDispatch();
 
   return (
     <section className="w-full overflow-x-hidden">
@@ -42,6 +46,7 @@ export const Home = () => {
               className="bg-gray-300 py-2 px-4 rounde-md text-black active:scale-105
             hover:bg-zinc-400 transition-all ease-in cursor-pointer rounded-lg"
               key={category}
+              onClick={() => dispatch(setSelectedCategory(category))}
             >
               {category}
             </button>
