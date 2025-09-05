@@ -13,7 +13,7 @@ export const ProductCard = ({ product }) => {
 
             <div className="flex justify-between mt-4 items-center">
                 <p className="text-xl font-semibold">${product.price}</p>
-                <p>View Detail</p>
+                <p>View Details</p>
             </div>
         </div>
       </div>
