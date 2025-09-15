@@ -7,7 +7,11 @@ import { setSearchTerm } from "../features/products/ProductSlice";
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const dispatch = useDispatch();
-  const searchTerm = useSelector((state) => state.product.searchTerm)
+  const searchTerm = useSelector((state) => state.product.searchTerm);
+
+  // cart
+  const cartItems = useSelector((state) => state.cart.items);
+  const itemCount = cartItems.reduce((total, item) => total + item.quantity, 0);
 
   const dropDown = () => {
     setIsOpen(!isOpen);
@@ -35,8 +39,10 @@ export const Navbar = () => {
             </div>
 
             {isOpen && (
-              <div className="flex flex-col absolute right-0 md:right-0 top-12 z-10
-               bg-zinc-50 p-4 gap-4">
+              <div
+                className="flex flex-col absolute right-0 md:right-0 top-12 z-10
+               bg-zinc-50 p-4 gap-4"
+              >
                 <li>
                   <Link to="">Sign Up</Link>
                 </li>
@@ -62,17 +68,28 @@ export const Navbar = () => {
         </div>
 
         <form action="" className="w-1/2 sm:block hidden">
-          <input type="text" 
-          className="bg-zinc-100 rounded-md border border-zinc-200 focus:outline-none p-3 w-full"
-          placeholder="Search Product"
-          value={searchTerm}
-          onChange={(e) => dispatch(setSearchTerm(e.target.value))}/>
-          
+          <input
+            type="text"
+            className="bg-zinc-100 rounded-md border border-zinc-200 focus:outline-none p-3 w-full"
+            placeholder="Search Product"
+            value={searchTerm}
+            onChange={(e) => dispatch(setSearchTerm(e.target.value))}
+          />
         </form>
 
-        <Link>
-            <ShoppingCart className="cursor-pointer bg-gray-100 px-3 py-2 rounded-full size-[50px]"/>
-        </Link>
+        <div className="relative">
+          <Link to={"/cart"}>
+            <ShoppingCart className="cursor-pointer bg-gray-100 px-3 py-2 rounded-full size-[50px]" />
+            {itemCount > 0 && (
+              <span
+                className="absolute -top-2 -right-1 bg-blue-600 text-white text-xs rounded-full
+              flex w-5 h-5 items-center justify-center"
+              >
+                {itemCount}
+              </span>
+            )}
+          </Link>
+        </div>
       </nav>
     </header>
   );

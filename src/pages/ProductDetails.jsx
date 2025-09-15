@@ -2,12 +2,15 @@ import { ShoppingCart } from "lucide-react";
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useParams } from "react-router-dom";
+import { addToCart } from "../features/cart/CartSlice";
 
 export const ProductDetails = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
 
-  const product = useSelector((state) => state.product.items.find((each) => each.id === parseInt(id)));
+  const product = useSelector((state) =>
+    state.product.items.find((each) => each.id === parseInt(id))
+  );
 
   if (!product) {
     return (
@@ -44,13 +47,17 @@ export const ProductDetails = () => {
             </div>
             <div className="mb-6">
               <h3 className="font-semibold mb-2">Category</h3>
-              <span className="font-semibold mb-2">{product.category}</span>
+              <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm">
+                {product.category}
+              </span>
             </div>
 
             <button
               className="w-full md:w-auto bg-zinc-300 px-8 py-3
           rounded-md flex items-center justify-center gap-2 hover:bg-zinc-400
           cursor-pointer"
+
+          onClick={() => dispatch(addToCart(product))}
             >
               <ShoppingCart /> Add to Cart
             </button>
