@@ -54,7 +54,7 @@ export const Home = () => {
         })}
       </div>
 
-      <div className="container mx-auto px-9 mt-10">
+      <div className="container mx-auto px-9 mt-5">
         <ProductGrid />
       </div>
 

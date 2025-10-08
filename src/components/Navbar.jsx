@@ -30,7 +30,7 @@ export const Navbar = () => {
               <li>
                 <Link to="/">About</Link>
               </li>
-              <li>
+              <li className="hidden lg:block">
                 <Link to="/">FAQs</Link>
               </li>
               <li>
