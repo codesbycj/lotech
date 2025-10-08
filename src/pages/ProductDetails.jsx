@@ -27,14 +27,14 @@ export const ProductDetails = () => {
   }
 
   return (
-    <div className="container mx-auto px-9 py-8">
+    <div className="container mx-auto px-9 py-8 overflow-x-hidden">
       <div className="mt-40">
         <Link to="/" className="mb-8 inline-block">
           Back to Products
         </Link>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-          <div className="shadow-md p-4 rounded w-[660px]">
+          <div className="shadow-md p-4 rounded w-lg-[660px]">
             <img src={product.image} alt="" />
           </div>
 

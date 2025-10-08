@@ -60,7 +60,7 @@ export const Navbar = () => {
         </div>
       </>
 
-      <nav className="flex justify-between container px-9 m-auto items-center md:py-6 py-3 mb-15 md:mb-0">
+      <nav className="flex justify-between container px-9 m-auto items-center md:py-6 py-3 md:mb-0">
         <div>
           <Link>
             <img src="./lotech-bg.png" alt="" className="w-20 md:w-25" />
