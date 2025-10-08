@@ -39,7 +39,7 @@ export const Home = () => {
         </div>
       </div>
 
-      <div className="flex px-9 container gap-4 mx-auto flex-wrap">
+      <div className="flex px-9 container gap-4 mx-auto flex-wrap mt-15">
         {categories.map((category) => {
           return (
             <button
